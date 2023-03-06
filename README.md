@@ -1,5 +1,7 @@
 # Basic Shell
 
+<img width="100%" alt="Screen Shot 2023-03-06 at 10 03 25" src="https://user-images.githubusercontent.com/56880684/223148385-1b600f1f-3848-43b1-ab3d-e9fa38478dba.png">
+
 ## Description
 
 Reimplement the OS Shell in C using libc API. This shell covers most of the feature of a shell.
