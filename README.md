@@ -1,14 +1,14 @@
-# Basic Shell
+# 👶 Baby Shell
 
 <img width="100%" alt="Screen Shot 2023-03-06 at 10 03 25" src="https://user-images.githubusercontent.com/56880684/223148385-1b600f1f-3848-43b1-ab3d-e9fa38478dba.png">
 
 ## Description
 
-Reimplement the OS Shell in C using libc API. This shell covers most of the feature of a shell.
+Reimplement the OS Shell in C using libc API. This shell covers most of the features of a shell.
 
 ## How does shell works?
 
-Shell is simply an interface layer that takes the advantage of `libc` API to operate a specific command. Terminal and shell is a two different concepts. Terminal is an application that uses shell as backend for user to communicate with the kernel.
+Shell is simply an interface layer that uses `libc` API to operate a specific command. Terminal and shell is a two different concepts. Terminal is an application that uses a shell as a backend for the user to communicate with the kernel.
 
 ### Tokenizer
 
@@ -19,11 +19,11 @@ First stage of a shell is to tokenize the command into tokens that will be proce
 
 ### Command execution
 
-To understand how shell execute commands, you must have a fundamental knowledge of process in operating system. Whenever a process uses system call like `execve` or `execvp` to execute binary command, the process exits with success code `exit(0)` or error code `exit(1)`. Hence, single process shell unable to run interactively waiting for user input.
+To understand how a shell executes commands, you must have a fundamental knowledge of the process in the operating system. Whenever a process uses a system call like `execve` or `execvp` to execute the binary command, the process exits with the success code `exit(0)` or error code `exit(1)`. Hence, a single process shell is unable to run interactively while waiting for user input.
 
 #### Forking process
 
-The solution is simple, for every command, we will fork another process which copies the memory of that process to the another. In this way, the context of the old process is the same while the main program is no longer interrupts after the execution.
+The solution is simple, for every command, we will fork another process which copies the memory of that process to the another. In this way, the context of the old process is the same while the main program is no longer interrupted after the execution.
 
 ```
 NAME
@@ -36,14 +36,14 @@ SYNOPSIS
      fork(void);
 
 DESCRIPTION
-     fork() causes creation of a new process...
+     fork() causes the creation of a new process...
 ```
 
 Read from `man fork`
 
 ### Pipe
 
-Pipelining command is a special thing in every shell, it makes use of OS file descriptors to stream the output from `stdout` to a file descriptor or to read the input from file descriptor instead of `stdin`. Implementing a pipe requires an API called `pipe()`.
+The pipelining command is a special thing in every shell, it makes use of OS file descriptors to stream the output from `stdout` to a file descriptor or to read the input from file descriptor instead of `stdin`. Implementing a pipe requires an API called `pipe()`.
 
 ```
 NAME
